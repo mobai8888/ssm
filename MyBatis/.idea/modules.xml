@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Mybatis03_dynamic/Mybatis03_dynamic.iml" filepath="$PROJECT_DIR$/Mybatis03_dynamic/Mybatis03_dynamic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_lazy/Mybatis_lazy.iml" filepath="$PROJECT_DIR$/Mybatis_lazy/Mybatis_lazy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_many2many/Mybatis_many2many.iml" filepath="$PROJECT_DIR$/Mybatis_many2many/Mybatis_many2many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mybatis_one2many/Mybatis_one2many.iml" filepath="$PROJECT_DIR$/Mybatis_one2many/Mybatis_one2many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis01/mybatis01.iml" filepath="$PROJECT_DIR$/mybatis01/mybatis01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis02/mybatis02.iml" filepath="$PROJECT_DIR$/mybatis02/mybatis02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis04/mybatis04.iml" filepath="$PROJECT_DIR$/mybatis04/mybatis04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_annotation/mybatis_annotation.iml" filepath="$PROJECT_DIR$/mybatis_annotation/mybatis_annotation.iml" />
+    </modules>
+  </component>
+</project>

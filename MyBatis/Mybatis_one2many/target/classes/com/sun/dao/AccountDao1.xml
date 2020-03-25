@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.dao.AccountDao1">
+    <resultMap id="userMap" type="user">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"/>
+        <result column="address" property="address"/>
+        <result column="sex" property="sex"/>
+        <result column="birthday" property="birthday"/>
+        <collection property="list" ofType="account">
+            <id column="id" property="id"/>
+            <result column="uid" property="uid"/>
+            <result column="money" property="money"/>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="userMap">
+        select u.*,a.ID,a.UID,a.MONEY from user u  left join account a on a.UID=u.id
+    </select>
+
+    <resultMap id="nd" type="account">
+
+    </resultMap>
+
+    <select id="findAllAccount" resultMap="nd">
+      select * from account;
+    </select>
+    <select id="findAllcount1" resultType="accountUser">
+        SELECT
+ account.*,
+ user.name,
+ user.address
+FROM
+ account,
+ user
+WHERE account.uid = user.id
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.dao.UserDao">
+    <!-- 开启二级缓存的支持 -->
+    <cache></cache>
+    <!--将 UserDao.xml 映射文件中的<select>标签中设置 useCache=”true”代表当前这个 statement 要使用
+    二级缓存，如果不使用二级缓存可以设置为 false。
+    注意：针对每次查询都需要最新的数据 sql，要设置成 useCache=false，禁用二级缓存-->
+    <select id="findUserById" parameterType="int" resultType="user" useCache="true">
+        select * from user where id=#{uid}
+    </select>
+    <resultMap id="userMap" type="user">
+        <result column="id" property="id"></result>
+        <collection property="accounts" ofType="account"
+            select="com.sun.dao.IAccountDao.findAccountByUid" column="id" fetchType="lazy">
+        </collection>
+    </resultMap>
+    <!-- 配置查询所有操作 -->
+    <select id="findAllUser" resultMap="userMap">
+      select * from user
+    </select>
+    <update id="updateUser" parameterType="user">
+        update user set name=#{name},address=#{address}
+    </update>
+</mapper>

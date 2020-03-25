@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sun.dao.IAccountDao">
+    <resultMap id="accountUserMap" type="account">
+        <result column="uid" property="uid"></result>
+        <!-- 它是用于指定从表方的引用实体属性的 -->
+        <association property="user" select="com.sun.dao.UserDao.findUserById" javaType="user" column="uid"></association>
+    </resultMap>
+   <!--查询所有账户，同时还要获取到当前账户的所属用户信息-->
+    <select id="findAllAccount" resultMap="accountUserMap">
+        select * from account
+    </select>
+    <!-- 根据用户id查询账户列表 -->
+    <select id="findAccountByUid" resultType="account" parameterType="int" useCache="true">
+        select * from account where id=#{uid}
+    </select>
+</mapper>
